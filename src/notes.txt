@@ -2,3 +2,5 @@
 I had to add the initialization to enemyBounds in an active function, so i was updated.
 Otherwise the enemyBounds stayed in the same position in which the entity was spawned.
 
+So the objects from the vector do get deleted
+

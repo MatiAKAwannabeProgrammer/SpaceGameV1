@@ -33,13 +33,17 @@ void Game::pollEvents()
 
         if (!gameInProgress)
         {
-            if (event.type == event.MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && mouseOnButton(startButton) == true)
+            if (event.type == event.MouseButtonPressed &&
+                    event.mouseButton.button == sf::Mouse::Left &&
+                    mouseOnButton(startButton) == true)
             {
                 event.type = event.MouseButtonReleased;
                 gameInProgress = true;
                 restartStats(); 
             }
-            if (event.type == event.MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && mouseOnButton(exitButton) == true)
+            if (event.type == event.MouseButtonPressed &&
+                    event.mouseButton.button == sf::Mouse::Left &&
+                    mouseOnButton(exitButton) == true)
             {
                 window.close();
             }
@@ -162,8 +166,8 @@ void Game::updateEnemy()
         {
             enemyVec.erase(enemyVec.begin() + i);
             enemyVec.shrink_to_fit();
-            if (gameInProgress)
-                --healthInt;
+                healthInt--;
+                std::cout << "health - " << std::endl;
         }
     }
 }
@@ -251,6 +255,7 @@ void Game::endGameMenu()
 
 void Game::startGameMenu()
 {
+    gameInProgress = false;
     startButton.drawButton(window, startButtonPos);
     exitButton.drawButton(window, exitButtonPos);
     exitText.drawExit(window);
